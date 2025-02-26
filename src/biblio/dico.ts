@@ -1,4 +1,4 @@
-import {Cancion, cancion} from "./cancion"
+import {Cancion} from "./cancion"
 
 export interface disco {
   nombre: string,
