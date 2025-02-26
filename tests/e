@@ -1,0 +1,38 @@
+describe("Combate Pokémon", () => {
+
+  test("Charmander (fuego) debería ganar contra Bulbasaur (planta)", () => {
+    const combate = new Combat(charmander, bulbasaur);
+    const ganador = combate.start();
+    expect(ganador).toBe(charmander);
+  });
+
+  test("Squirtle (agua) debería ganar contra Charmander (fuego)", () => {
+    const combate = new Combat(squirtle, charmander);
+    const ganador = combate.start();
+    expect(ganador).toBe(squirtle);
+  });
+
+  test("Pikachu (eléctrico) debería ganar contra Squirtle (agua)", () => {
+    const combate = new Combat(pikachu, squirtle);
+    const ganador = combate.start();
+    expect(ganador).toBe(pikachu);
+  });
+
+  test("Bulbasaur (planta) debería ganar contra Squirtle (agua)", () => {
+    const combate = new Combat(bulbasaur, squirtle);
+    const ganador = combate.start();
+    expect(ganador).toBe(bulbasaur);
+  });
+
+  test("Pikachu (eléctrico) vs Bulbasaur (planta) debería ser parejo", () => {
+    const combate = new Combat(pikachu, bulbasaur);
+    const ganador = combate.start();
+    expect([pikachu, bulbasaur]).toContain(ganador);
+  });
+
+  test("Pikachu (eléctrico) vs Charmander (fuego) debería ser parejo", () => {
+    const combate = new Combat(pikachu, charmander);
+    const ganador = combate.start();
+    expect([pikachu, charmander]).toContain(ganador);
+  });
+});
