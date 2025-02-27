@@ -3,8 +3,15 @@ import { Cancion } from "./cancion";
 import { Disco } from "./dico";
 
 export interface biblioteca {
-  artistas: Artista[]
+  artistas: Artista[],
+  buscarArtista(nombre: string): Artista[];
+  buscarDisco(nombre: string): Disco[];
+  buscarCancion(nombre: string): Cancion[];
+  duracionDisco(nombre: string): number | undefined;
+  numeroReproduccionesDisco(nombre: string): number | undefined;
+  numeroCancionesDisco(nombre: string): number | undefined;
 }
+
 
 export class Biblioteca implements biblioteca {
   constructor(public readonly artistas:Artista[]){}
